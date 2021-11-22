@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react"
 
-
 const Timer = ({ onTick }) => {
     const [seconds, setSeconds] = useState(0)
 
     useEffect(() => {
-        console.log('tick effect');
         const timer = setInterval(() => {
             setSeconds(s => {
                 if (onTick) {
