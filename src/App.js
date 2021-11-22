@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useCallback, useState } from "react";
+import StartMenu from './components/game/StartMenu';
+import Game from './components/game/Game';
 
 function App() {
+
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [result, setResult] = useState()
+
+  const startHandler = useCallback(() => {
+    setIsPlaying(true)
+    setResult(null)
+  }, [])
+
+  const finishHandler = useCallback((words, seconds) => {
+    const minutes = seconds / 60
+    setResult(words > 0 ? words / minutes : 0)
+    setIsPlaying(false)
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app flex-center">
+      {
+        isPlaying ?
+          <Game onFinish={finishHandler} />
+          :
+          <StartMenu onGameStart={startHandler} result={result} />
+      }
     </div>
   );
 }
