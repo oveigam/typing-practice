@@ -30,6 +30,21 @@ h2 {
   font-size: 4rem;
 }
 
+h3 {
+  font-size: 1.5rem;
+}
+
+.wordContainer {
+  display: grid;
+  text-align: center;
+}
+
+.wordContainer h2 {
+  grid-column: 1;
+  grid-row: 1/2;
+  align-self: center;
+}
+
 input {
   padding: 20px 30px;
   color: #571845;

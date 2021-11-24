@@ -1,4 +1,4 @@
-
+import Button from './../common/Button';
 
 const StartMenu = ({ onGameStart, result }) => {
     return (
@@ -9,7 +9,7 @@ const StartMenu = ({ onGameStart, result }) => {
                     :
                     <h1>Typing Practice</h1>
             }
-            <button onClick={onGameStart}>{result ? 'RETRY' : 'START'}</button>
+            <Button onClick={onGameStart}>{result ? 'RETRY' : 'START'}</Button>
         </>
     );
 }

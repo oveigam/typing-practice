@@ -17,9 +17,7 @@ const Timer = ({ onTick }) => {
     }, [onTick])
 
     return (
-        <div>
-            {seconds}
-        </div>
+        <h3>{seconds}</h3>
     );
 }
 
